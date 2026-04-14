@@ -79,8 +79,8 @@ export async function POST(req: NextRequest) {
         delegate: {
           name: `${delegate.first_name} ${delegate.last_name}`,
           institution: delegate.institution,
-          committee: (delegate.committees as { abbreviation: string } | null)?.abbreviation || 'Pending',
-          portfolio: (delegate.portfolios as { country_or_role: string } | null)?.country_or_role || 'Pending',
+          committee: (Array.isArray(delegate.committees) ? (delegate.committees as { abbreviation: string }[])[0]?.abbreviation : (delegate.committees as { abbreviation: string } | null)?.abbreviation) || 'Pending',
+          portfolio: (Array.isArray(delegate.portfolios) ? (delegate.portfolios as { country_or_role: string }[])[0]?.country_or_role : (delegate.portfolios as { country_or_role: string } | null)?.country_or_role) || 'Pending',
           delegate_id: delegate.delegate_id,
           checked_in: true,
           checkin_time: delegate.checkin_time,
@@ -112,8 +112,8 @@ export async function POST(req: NextRequest) {
       delegate: {
         name: `${delegate.first_name} ${delegate.last_name}`,
         institution: delegate.institution,
-        committee: (delegate.committees as { abbreviation: string } | null)?.abbreviation || 'Pending',
-        portfolio: (delegate.portfolios as { country_or_role: string } | null)?.country_or_role || 'Pending',
+        committee: (Array.isArray(delegate.committees) ? (delegate.committees as { abbreviation: string }[])[0]?.abbreviation : (delegate.committees as { abbreviation: string } | null)?.abbreviation) || 'Pending',
+        portfolio: (Array.isArray(delegate.portfolios) ? (delegate.portfolios as { country_or_role: string }[])[0]?.country_or_role : (delegate.portfolios as { country_or_role: string } | null)?.country_or_role) || 'Pending',
         delegate_id: delegate.delegate_id,
         checked_in: true,
       },

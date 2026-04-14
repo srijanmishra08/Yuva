@@ -1,4 +1,3 @@
-import { createServerClient } from '@supabase/auth-helpers-nextjs';
 import { createAdminClient } from './supabase';
 import { NextRequest, NextResponse } from 'next/server';
 import type { UserRole } from '@/types';

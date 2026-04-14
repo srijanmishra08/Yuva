@@ -28,7 +28,7 @@ export async function GET(
   // Generate fresh QR
   const qrBuffer = await generateQRCodeBuffer(delegate.delegate_id);
 
-  return new NextResponse(qrBuffer, {
+  return new NextResponse(qrBuffer as unknown as BodyInit, {
     status: 200,
     headers: {
       'Content-Type': 'image/png',

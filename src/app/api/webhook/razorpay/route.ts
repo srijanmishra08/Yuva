@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyWebhookSignature } from '@/lib/razorpay';
 import { createAdminClient } from '@/lib/supabase';
 
-export const config = { api: { bodyParser: false } };
-
 export async function POST(req: NextRequest) {
   try {
     const rawBody = await req.text();
