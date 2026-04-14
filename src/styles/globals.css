@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #FFAA33;
+  --gold-light: #FFD280;
+  --gold-dark: #E08A00;
+  --charcoal: #1F2937;
+  --charcoal-light: #374151;
+  --charcoal-dark: #111827;
+  --cream: #FFF6ED;
+  --cream-dark: #F5E6D3;
+  --bronze: #C68642;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--charcoal-dark);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================
+   TYPOGRAPHY
+   ======================== */
+
+.font-anton { font-family: 'Anton', sans-serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+.font-impact { font-family: Impact, 'Arial Narrow', sans-serif; }
+
+/* ========================
+   YUVA DESIGN COMPONENTS
+   ======================== */
+
+.yuva-card {
+  @apply bg-charcoal-light border border-white/10 rounded-3xl shadow-card;
+  backdrop-filter: blur(12px);
+}
+
+.yuva-card-glass {
+  @apply rounded-3xl border border-white/10;
+  background: rgba(31, 41, 55, 0.7);
+  backdrop-filter: blur(20px);
+}
+
+.yuva-btn-primary {
+  @apply bg-gold text-charcoal-dark font-montserrat font-bold rounded-2xl px-8 py-4 
+         transition-all duration-300 hover:bg-gold-light hover:shadow-gold active:scale-95
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.yuva-btn-outline {
+  @apply border-2 border-gold text-gold font-montserrat font-semibold rounded-2xl px-8 py-4 
+         transition-all duration-300 hover:bg-gold hover:text-charcoal-dark active:scale-95;
+}
+
+.yuva-btn-ghost {
+  @apply text-gold font-montserrat font-medium rounded-2xl px-6 py-3 
+         transition-all duration-300 hover:bg-gold/10 active:scale-95;
+}
+
+.yuva-input {
+  @apply w-full bg-charcoal border border-white/20 text-cream rounded-xl px-4 py-3
+         font-montserrat placeholder-white/30 focus:outline-none focus:border-gold 
+         focus:ring-1 focus:ring-gold/50 transition-all duration-200;
+}
+
+.yuva-select {
+  @apply w-full bg-charcoal border border-white/20 text-cream rounded-xl px-4 py-3
+         font-montserrat focus:outline-none focus:border-gold 
+         focus:ring-1 focus:ring-gold/50 transition-all duration-200 appearance-none cursor-pointer;
+}
+
+.yuva-label {
+  @apply block text-white/70 text-sm font-montserrat font-medium mb-2;
+}
+
+.yuva-section-title {
+  @apply font-anton text-3xl tracking-wide text-gold uppercase;
+}
+
+.yuva-page-title {
+  @apply font-anton text-5xl md:text-6xl tracking-wide text-cream uppercase;
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #FFAA33, #C68642);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-border {
+  border: 1px solid rgba(255, 170, 51, 0.3);
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 170, 51, 0) 0%,
+    rgba(255, 170, 51, 0.3) 50%,
+    rgba(255, 170, 51, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ========================
+   SCROLLBAR
+   ======================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--charcoal-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bronze);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* ========================
+   TABLE STYLES
+   ======================== */
+
+.yuva-table {
+  @apply w-full border-collapse;
+}
+
+.yuva-table th {
+  @apply bg-charcoal-dark text-gold font-montserrat font-semibold text-sm uppercase tracking-wider
+         px-4 py-3 text-left border-b border-white/10;
+}
+
+.yuva-table td {
+  @apply px-4 py-3 text-white/80 font-montserrat text-sm border-b border-white/5
+         transition-colors duration-150;
+}
+
+.yuva-table tr:hover td {
+  @apply bg-white/5;
+}
+
+/* ========================
+   STATUS BADGES
+   ======================== */
+
+.badge-gold {
+  @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold
+         bg-gold/20 text-gold border border-gold/30;
+}
+
+.badge-green {
+  @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold
+         bg-green-500/20 text-green-400 border border-green-500/30;
+}
+
+.badge-red {
+  @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold
+         bg-red-500/20 text-red-400 border border-red-500/30;
+}
+
+.badge-gray {
+  @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold
+         bg-white/10 text-white/50 border border-white/20;
+}
+
+/* ========================
+   PORTFOLIO MATRIX
+   ======================== */
+
+.portfolio-available {
+  @apply bg-green-500/20 border border-green-500/30 text-green-400;
+}
+
+.portfolio-reserved {
+  @apply bg-yellow-500/20 border border-yellow-500/30 text-yellow-400;
+}
+
+.portfolio-assigned {
+  @apply bg-red-500/20 border border-red-500/30 text-red-400;
+}
+
+/* ========================
+   ANIMATIONS
+   ======================== */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 170, 51, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(255, 170, 51, 0.5); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-fade-up { animation: fadeUp 0.6s ease-out forwards; }
+.animate-pulse-gold { animation: pulseGold 2s ease-in-out infinite; }
+
+/* ========================
+   DELEGATE PASS
+   ======================== */
+
+.delegate-pass {
+  background: linear-gradient(135deg, #1F2937 0%, #111827 60%, #1a1509 100%);
+  border: 1px solid rgba(255, 170, 51, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.delegate-pass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FFAA33, #C68642, #FFAA33);
+}
+
+.delegate-pass::after {
+  content: 'YUVA';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-family: Anton, sans-serif;
+  font-size: 120px;
+  color: rgba(255, 170, 51, 0.03);
+  letter-spacing: 8px;
+  pointer-events: none;
+}
+
+/* ========================
+   LOADING STATES
+   ======================== */
+
+.skeleton {
+  @apply rounded-xl bg-white/5 animate-pulse;
+}
+
+/* ========================
+   FORM SECTION DIVIDER
+   ======================== */
+
+.form-section {
+  @apply border-t border-white/10 pt-6 mt-6;
+}
+
+.form-section-title {
+  @apply font-anton text-lg text-gold uppercase tracking-wider mb-4;
+}
